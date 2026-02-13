@@ -2,16 +2,15 @@
 import FooterNav from '@/Components/FooterNav.vue';
 import HeaderBar from '@/Components/HeaderBar.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import '@/../css/top-nav-bar.css';
 </script>
 
 <template>
     <Head title="Privacy Policy" />
     <HeaderBar />
-    <div v-if="!$page.props.auth.user" class="top-nav-bar">
-        <Link :href="route('login')" class="top-nav-link" :class="{ 'top-nav-link-active': route().current('login') }">Login</Link>
-        <span class="top-nav-divider">|</span>
-        <Link :href="route('register')" class="top-nav-link" :class="{ 'top-nav-link-active': route().current('register') }">Register</Link>
+    <div v-if="!$page.props.auth.user" class="fixed top-[56px] left-0 w-full flex justify-center items-center bg-[#FFA000] border-b border-[#e0e0e0] z-[150] h-[56px] min-h-[56px]">
+        <Link :href="route('login')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('login') }">Login</Link>
+        <span class="text-[#222] text-[20px] px-2 min-w-[24px] min-h-[44px] inline-flex items-center justify-center select-none">|</span>
+        <Link :href="route('register')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('register') }">Register</Link>
     </div>
 
     <div class="min-h-screen bg-gray-50 pt-28 pb-14 dark:bg-gray-900">

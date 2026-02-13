@@ -1,536 +1,305 @@
-
-  .output.txt:35:  â¨¯ correct password must be provided to delete account
-             0.07s
-  .output.txt:36:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€
-> .output.txt:37:   FAILED  Tests\Feature\Auth\AuthenticationTest > users
-canâ€¦  QueryException
-  .output.txt:38:  SQLSTATE[HY000]: General error: 1 table users has no column
-named name (Connection: sqlite, Database: :memory:, SQL: insert into "users"
-("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Payton Osinski,
-greenholt.amani@example.org, 2026-02-13 08:05:17,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, NVlShWYDNY,
-2026-02-13 08:05:17, 2026-02-13 08:05:17))
-  .output.txt:39:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:40:    574â–•             if ($this->pretending()) {
-  .output.txt:41:    575â–•                 return true;
-  .output.txt:42:    576â–•             }
-  .output.txt:43:    577â–•
-  .output.txt:44:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:45:    579â–•
-  .output.txt:46:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:47:    581â–•
-  .output.txt:50:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:51:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€
-> .output.txt:52:   FAILED  Tests\Feature\Auth\AuthenticationTest > users
-canâ€¦  QueryException
-  .output.txt:53:  SQLSTATE[HY000]: General error: 1 table users has no column
-named name (Connection: sqlite, Database: :memory:, SQL: insert into "users"
-("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Rashawn Rippin DDS, aokeefe@example.com,
-2026-02-13 08:05:17,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, U69oSPKVqS,
-2026-02-13 08:05:17, 2026-02-13 08:05:17))
-  .output.txt:54:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:55:    574â–•             if ($this->pretending()) {
-  .output.txt:56:    575â–•                 return true;
-  .output.txt:57:    576â–•             }
-  .output.txt:58:    577â–•
-  .output.txt:59:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:60:    579â–•
-  .output.txt:61:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:62:    581â–•
-  .output.txt:65:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:66:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€
-> .output.txt:67:   FAILED  Tests\Feature\Auth\AuthenticationTest > users
-canâ€¦  QueryException
-  .output.txt:68:  SQLSTATE[HY000]: General error: 1 table users has no column
-named name (Connection: sqlite, Database: :memory:, SQL: insert into "users"
-("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Eileen Jacobi, josefa92@example.net,
-2026-02-13 08:05:17,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, ML6ERhFLDd,
-2026-02-13 08:05:17, 2026-02-13 08:05:17))
-  .output.txt:69:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:70:    574â–•             if ($this->pretending()) {
-  .output.txt:71:    575â–•                 return true;
-  .output.txt:72:    576â–•             }
-  .output.txt:73:    577â–•
-  .output.txt:74:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:75:    579â–•
-  .output.txt:76:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:77:    581â–•
-  .output.txt:80:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:81:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€
-> .output.txt:82:   FAILED  Tests\Feature\Auth\EmailVerificationTest >
-emailâ€¦   QueryException
-  .output.txt:83:  SQLSTATE[HY000]: General error: 1 table users has no column
-named name (Connection: sqlite, Database: :memory:, SQL: insert into "users"
-("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Jewell Watsica, mossie07@example.com, ?,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, xW7elWBgsW,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:84:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:85:    574â–•             if ($this->pretending()) {
-  .output.txt:86:    575â–•                 return true;
-  .output.txt:87:    576â–•             }
-  .output.txt:88:    577â–•
-  .output.txt:89:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:90:    579â–•
-  .output.txt:91:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:92:    581â–•
-  .output.txt:95:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:96:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€
-> .output.txt:97:   FAILED  Tests\Feature\Auth\EmailVerificationTest >
-emailâ€¦   QueryException
-  .output.txt:98:  SQLSTATE[HY000]: General error: 1 table users has no column
-named name (Connection: sqlite, Database: :memory:, SQL: insert into "users"
-("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Emory Zemlak, jrau@example.net, ?,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, nL3ZMtoe9A,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:99:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:100:    574â–•             if ($this->pretending()) {
-  .output.txt:101:    575â–•                 return true;
-  .output.txt:102:    576â–•             }
-  .output.txt:103:    577â–•
-  .output.txt:104:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:105:    579â–•
-  .output.txt:106:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:107:    581â–•
-  .output.txt:110:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:111:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:112:   FAILED  Tests\Feature\Auth\EmailVerificationTest >
-emailâ€¦   QueryException
-  .output.txt:113:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Prof. Shania Blanda,
-velma.boyle@example.com, ?,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, 5HHudPMuV6,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:114:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:115:    574â–•             if ($this->pretending()) {
-  .output.txt:116:    575â–•                 return true;
-  .output.txt:117:    576â–•             }
-  .output.txt:118:    577â–•
-  .output.txt:119:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:120:    579â–•
-  .output.txt:121:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:122:    581â–•
-  .output.txt:125:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:126:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:127:   FAILED  Tests\Feature\Auth\PasswordConfirmationTest >
-conâ€¦  QueryException
-  .output.txt:128:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Prof. Floyd Koelpin DVM,
-spencer.judson@example.org, 2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, 0mYvwwzZCm,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:129:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:130:    574â–•             if ($this->pretending()) {
-  .output.txt:131:    575â–•                 return true;
-  .output.txt:132:    576â–•             }
-  .output.txt:133:    577â–•
-  .output.txt:134:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:135:    579â–•
-  .output.txt:136:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:137:    581â–•
-  .output.txt:140:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:141:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:142:   FAILED  Tests\Feature\Auth\PasswordConfirmationTest >
-pasâ€¦  QueryException
-  .output.txt:143:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Cecelia Breitenberg,
-bosco.garett@example.net, 2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, fFwlyh5OR9,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:144:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:145:    574â–•             if ($this->pretending()) {
-  .output.txt:146:    575â–•                 return true;
-  .output.txt:147:    576â–•             }
-  .output.txt:148:    577â–•
-  .output.txt:149:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:150:    579â–•
-  .output.txt:151:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:152:    581â–•
-  .output.txt:155:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:156:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:157:   FAILED  Tests\Feature\Auth\PasswordConfirmationTest >
-pasâ€¦  QueryException
-  .output.txt:158:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Vincenzo Greenholt, chegmann@example.net,
-2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, djlNAXJG60,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:159:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:160:    574â–•             if ($this->pretending()) {
-  .output.txt:161:    575â–•                 return true;
-  .output.txt:162:    576â–•             }
-  .output.txt:163:    577â–•
-  .output.txt:164:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:165:    579â–•
-  .output.txt:166:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:167:    581â–•
-  .output.txt:170:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:171:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:172:   FAILED  Tests\Feature\Auth\PasswordResetTest > reset
-passâ€¦  QueryException
-  .output.txt:173:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Juanita Larkin, lkuhic@example.org,
-2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, rXaIt1pnhW,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:174:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:175:    574â–•             if ($this->pretending()) {
-  .output.txt:176:    575â–•                 return true;
-  .output.txt:177:    576â–•             }
-  .output.txt:178:    577â–•
-  .output.txt:179:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:180:    579â–•
-  .output.txt:181:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:182:    581â–•
-  .output.txt:185:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:186:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:187:   FAILED  Tests\Feature\Auth\PasswordResetTest > reset
-passâ€¦  QueryException
-  .output.txt:188:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Mr. Antwan Powlowski Jr.,
-vschiller@example.net, 2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, Hrvv9NkJRs,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:189:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:190:    574â–•             if ($this->pretending()) {
-  .output.txt:191:    575â–•                 return true;
-  .output.txt:192:    576â–•             }
-  .output.txt:193:    577â–•
-  .output.txt:194:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:195:    579â–•
-  .output.txt:196:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:197:    581â–•
-  .output.txt:200:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:201:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:202:   FAILED  Tests\Feature\Auth\PasswordResetTest > password
-câ€¦  QueryException
-  .output.txt:203:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Prof. Lon Shields,
-haag.rollin@example.org, 2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, 4yyVUs27DF,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:204:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:205:    574â–•             if ($this->pretending()) {
-  .output.txt:206:    575â–•                 return true;
-  .output.txt:207:    576â–•             }
-  .output.txt:208:    577â–•
-  .output.txt:209:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:210:    579â–•
-  .output.txt:211:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:212:    581â–•
-  .output.txt:215:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:216:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:217:   FAILED  Tests\Feature\Auth\PasswordUpdateTest >
-passwordâ€¦   QueryException
-  .output.txt:218:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Corrine Grady IV,
-ondricka.rosie@example.net, 2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, 8sAQPEXXJw,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:219:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:220:    574â–•             if ($this->pretending()) {
-  .output.txt:221:    575â–•                 return true;
-  .output.txt:222:    576â–•             }
-  .output.txt:223:    577â–•
-  .output.txt:224:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:225:    579â–•
-  .output.txt:226:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:227:    581â–•
-  .output.txt:230:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:231:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:232:   FAILED  Tests\Feature\Auth\PasswordUpdateTest > correct
-pâ€¦  QueryException
-  .output.txt:233:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Cole Kunde Jr., ssmitham@example.net,
-2026-02-13 08:05:18,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, 8hxRts0vVV,
-2026-02-13 08:05:18, 2026-02-13 08:05:18))
-  .output.txt:234:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:235:    574â–•             if ($this->pretending()) {
-  .output.txt:236:    575â–•                 return true;
-  .output.txt:237:    576â–•             }
-  .output.txt:238:    577â–•
-  .output.txt:239:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:240:    579â–•
-  .output.txt:241:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:242:    581â–•
-  .output.txt:245:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:246:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:247:   FAILED  Tests\Feature\Auth\RegistrationTest > new users
-can register
-  .output.txt:248:  The user is not authenticated
-> .output.txt:249:Failed asserting that false is true.
-  .output.txt:250:  at tests\Feature\Auth\RegistrationTest.php:17
-  .output.txt:251:     13â–•         'password' => 'password',
-  .output.txt:252:     14â–•         'password_confirmation' => 'password',
-  .output.txt:253:     15â–•     ]);
-  .output.txt:254:     16â–•
-  .output.txt:255:  âžœ  17â–•     $this->assertAuthenticated();
-  .output.txt:256:     18â–•     $response->assertRedirect(route('dashboard',
-absolute: false));
-  .output.txt:257:     19â–• });
-  .output.txt:258:     20â–•
-  .output.txt:259:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:260:   FAILED  Tests\Feature\ProfileTest > profile page is
-displâ€¦  QueryException
-  .output.txt:261:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Ms. Kimberly Braun IV, thea75@example.org,
-2026-02-13 08:05:19,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, tsAJe8r0RJ,
-2026-02-13 08:05:19, 2026-02-13 08:05:19))
-  .output.txt:262:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:263:    574â–•             if ($this->pretending()) {
-  .output.txt:264:    575â–•                 return true;
-  .output.txt:265:    576â–•             }
-  .output.txt:266:    577â–•
-  .output.txt:267:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:268:    579â–•
-  .output.txt:269:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:270:    581â–•
-  .output.txt:273:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:274:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:275:   FAILED  Tests\Feature\ProfileTest > profile information
-câ€¦  QueryException
-  .output.txt:276:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Felipe Prosacco, betty59@example.net,
-2026-02-13 08:05:19,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, WcPTMlJuOq,
-2026-02-13 08:05:19, 2026-02-13 08:05:19))
-  .output.txt:277:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:278:    574â–•             if ($this->pretending()) {
-  .output.txt:279:    575â–•                 return true;
-  .output.txt:280:    576â–•             }
-  .output.txt:281:    577â–•
-  .output.txt:282:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:283:    579â–•
-  .output.txt:284:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:285:    581â–•
-  .output.txt:288:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:289:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:290:   FAILED  Tests\Feature\ProfileTest > email verification
-stâ€¦  QueryException
-  .output.txt:291:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Bulah Gaylord, hbeahan@example.org,
-2026-02-13 08:05:19,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, CkloO01fFd,
-2026-02-13 08:05:19, 2026-02-13 08:05:19))
-  .output.txt:292:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:293:    574â–•             if ($this->pretending()) {
-  .output.txt:294:    575â–•                 return true;
-  .output.txt:295:    576â–•             }
-  .output.txt:296:    577â–•
-  .output.txt:297:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:298:    579â–•
-  .output.txt:299:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:300:    581â–•
-  .output.txt:303:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:304:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:305:   FAILED  Tests\Feature\ProfileTest > user can delete
-theirâ€¦  QueryException
-  .output.txt:306:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Gilberto Jones,
-gislason.mercedes@example.net, 2026-02-13 08:05:19,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, S15QTAbHzn,
-2026-02-13 08:05:19, 2026-02-13 08:05:19))
-  .output.txt:307:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:308:    574â–•             if ($this->pretending()) {
-  .output.txt:309:    575â–•                 return true;
-  .output.txt:310:    576â–•             }
-  .output.txt:311:    577â–•
-  .output.txt:312:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:313:    579â–•
-  .output.txt:314:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:315:    581â–•
-  .output.txt:318:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-  .output.txt:319:  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â
-”€â”€â”€â”€
-> .output.txt:320:   FAILED  Tests\Feature\ProfileTest > correct password
-mustâ€¦  QueryException
-  .output.txt:321:  SQLSTATE[HY000]: General error: 1 table users has no
-column named name (Connection: sqlite, Database: :memory:, SQL: insert into
-"users" ("name", "email", "email_verified_at", "password", "remember_token",
-"updated_at", "created_at") values (Mr. Tremayne Bogisich,
-xmueller@example.org, 2026-02-13 08:05:19,
-$2y$04$ilYU3IYdxs/8PW.sBpVmt.yUYyD248bXEq5k9sOmBeRayJWak.oua, luygy93gPo,
-2026-02-13 08:05:19, 2026-02-13 08:05:19))
-  .output.txt:322:  at
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:323:    574â–•             if ($this->pretending()) {
-  .output.txt:324:    575â–•                 return true;
-  .output.txt:325:    576â–•             }
-  .output.txt:326:    577â–•
-  .output.txt:327:  âžœ 578â–•             $statement =
-$this->getPdo()->prepare($query);
-  .output.txt:328:    579â–•
-  .output.txt:329:    580â–•             $this->bindValues($statement,
-$this->prepareBindings($bindings));
-  .output.txt:330:    581â–•
-  .output.txt:332:  1
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
-  .output.txt:333:  2
-vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
-> .output.txt:334:  Tests:    20 failed, 5 passed (6 assertions)
-  .output.txt:335:  Duration: 4.58s
+* {
+  box-sizing: border-box;
+}
+.landing-root {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  padding: 0;
+  margin: 0;
+}
+.header-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 200;
+}
+.top-nav-bar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--warning-color, #FFA000);
+  padding: 0;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 150;
+  height: 56px;
+  min-height: 56px;
+}
+.top-nav-link {
+  color: #111;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 12px 18px;
+  min-width: 44px;
+  min-height: 44px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.top-nav-link.router-link-exact-active {
+  text-decoration: underline;
+  color: #1877f2;
+}
+.top-nav-link:active {
+  background: #f0f2f5;
+}
+.top-nav-divider {
+  color: #222;
+  font-size: 20px;
+  padding: 0 8px;
+  min-width: 24px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.hr {
+  border-bottom: 1px solid var(--gray-400);
+  margin-bottom: 0;
+}
+.main-content {
+  position: relative;
+  min-height: 400px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 128px 0 0 0; /* 56px header + 56px nav + 16px gap */
+  width: 100vw;
+  box-sizing: border-box;
+}
+.online-now {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  align-self: flex-start;
+  margin-left: var(--spacing-sm);
+}
+.users-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+  width: 100%;
+  padding-left: var(--spacing-sm);
+}
+.user-bubble {
+  align-items: center;
+  margin-right: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  display: flex;
+  flex-direction: column;
+}
+.user-img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gray-400);
+  background: var(--gray-100);
+}
+.user-img-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gray-400);
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  color: var(--text-tertiary);
+}
+.user-name {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-top: var(--spacing-xs);
+}
+.members-online {
+  font-size: var(--font-size-base);
+  color: var(--text-tertiary);
+  margin-bottom: var(--spacing-sm);
+  align-self: flex-start;
+  margin-left: var(--spacing-sm);
+}
+.quote-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  width: 96%;
+  align-self: center;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  text-align: justify;
+  box-shadow: var(--shadow-sm);
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal-backdrop);
+}
+.modal-content {
+  background-color: var(--bg-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  width: 80%;
+  max-width: 400px;
+  box-shadow: var(--shadow-xl);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+.modal-icon {
+  font-size: var(--font-size-2xl);
+  margin-right: var(--spacing-sm);
+  color: var(--primary-color);
+}
+.modal-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-sm);
+  gap: var(--spacing-sm);
+}
+.download-app-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+}
+.download-app-btn {
+  background: #43a047;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.12);
+  transition: background 0.15s;
+}
+.download-app-btn:hover {
+  background: #388e3c;
+}
+.maintenance-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.25);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.maintenance-modal-content {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(33,150,243,0.18), 0 2px 8px rgba(0,0,0,0.08);
+  padding: 36px 32px 28px 32px;
+  min-width: 320px;
+  max-width: 95vw;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 2px solid #e3f0ff;
+  animation: modalPopIn 0.3s;
+}
+@keyframes modalPopIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.maintenance-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.maintenance-icon {
+  color: #b71c1c;
+  font-size: 2.2em;
+}
+.maintenance-title {
+  font-size: 1.35em;
+  font-weight: 800;
+  color: #b71c1c;
+  letter-spacing: 0.5px;
+}
+.maintenance-main-message {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: #b71c1c;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.maintenance-highlight {
+  color: #d32f2f;
+  font-weight: 700;
+}
+.maintenance-timer-label {
+  font-size: 1.05em;
+  color: #444;
+  margin-bottom: 2px;
+  margin-top: 8px;
+}
+.maintenance-timer {
+  font-size: 1.5em;
+  font-weight: 800;
+  color: #1976d2;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.maintenance-desc {
+  font-size: 0.98em;
+  color: #888;
+  margin-top: 8px;
+  text-align: center;
+}
+.maintenance-modal-overlay-inside {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.18);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+.maintenance-blur > *:not(.maintenance-modal-overlay-inside) {
+  pointer-events: none;
+  user-select: none;
+  /* Optionally add a blur effect: filter: blur(2px); */
+}

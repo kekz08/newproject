@@ -4,8 +4,6 @@ import HeaderBar from '@/Components/HeaderBar.vue';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 import { computed, ref, onMounted } from 'vue';
 import { quotes } from '@/quotes';
-import '@/../css/top-nav-bar.css';
-import '@/../css/landing.css';
 
 defineProps({
     canLogin: Boolean,
@@ -53,38 +51,37 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="landing-root">
+    <div class="min-h-screen w-full flex flex-col bg-white dark:bg-gray-900 p-0 m-0">
         <Head title="Welcome" />
-        <HeaderBar class="header-bar" />
+        <HeaderBar class="fixed top-0 left-0 w-full z-[200]" />
 
-        <div v-if="!$page.props.auth.user" class="top-nav-bar">
-            <Link :href="route('login')" class="top-nav-link" :class="{ 'top-nav-link-active': route().current('login') }">Login</Link>
-            <span class="top-nav-divider">|</span>
-            <Link :href="route('register')" class="top-nav-link" :class="{ 'top-nav-link-active': route().current('register') }">Register</Link>
+        <div v-if="!$page.props.auth.user" class="fixed top-[56px] left-0 w-full flex justify-center items-center bg-[#FFA000] border-b border-[#e0e0e0] z-[150] h-[56px] min-h-[56px]">
+            <Link :href="route('login')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('login') }">Login</Link>
+            <span class="text-[#222] text-[20px] px-2 min-w-[24px] min-h-[44px] inline-flex items-center justify-center select-none">|</span>
+            <Link :href="route('register')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('register') }">Register</Link>
         </div>
 
-        <div class="hr"></div>
+        <div class="border-b border-gray-400 mb-0"></div>
 
-        <div class="main-content">
-            <div class="online-now">Online Now:</div>
+        <div class="relative min-h-[400px] flex-1 flex flex-col items-center pt-[128px] pb-14 w-full box-border">
+            <div class="text-lg font-bold text-gray-900 dark:text-gray-100 mt-2 mb-1 self-start ml-2">Online Now:</div>
 
-            <div class="users-row">
-                <div v-for="user in randomOnlineUsers" :key="user.id" class="user-bubble">
+            <div class="flex flex-row items-center mb-1 w-full pl-2 overflow-x-auto">
+                <div v-for="user in randomOnlineUsers" :key="user.id" class="flex flex-col items-center mr-2 mb-1 shrink-0">
                     <img
                         :src="user.avatar ? (user.avatar.startsWith('http') ? user.avatar : user.avatar) : '/images/default-avatar.png'"
-                        class="user-img"
+                        class="w-12 h-12 rounded-full border border-gray-400 bg-gray-100 object-cover"
                         alt="User Avatar"
                     />
-                    <div class="user-name">{{ user && user.username ? user.username : 'Unknown User' }}</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">{{ user && user.username ? user.username : 'Unknown User' }}</div>
                 </div>
             </div>
 
-            <div class="members-online">
+            <div class="text-base text-gray-500 dark:text-gray-400 mb-2 self-start ml-2">
                 All Members Online ({{ allOnlineUsers.length }})
             </div>
 
-
-            <div class="quote-box card">
+            <div class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-4 mt-4 mb-8 w-[96%] self-center text-base text-gray-900 dark:text-gray-100 text-left shadow-sm italic">
                 "{{ currentQuote }}"
             </div>
         </div>
