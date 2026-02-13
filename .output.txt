@@ -1,305 +1,358 @@
-* {
-  box-sizing: border-box;
-}
-.landing-root {
-  min-height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-primary);
-  padding: 0;
-  margin: 0;
-}
-.header-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  z-index: 200;
-}
-.top-nav-bar {
-  position: fixed;
-  top: 56px;
-  left: 0;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--warning-color, #FFA000);
-  padding: 0;
-  border-bottom: 1px solid #e0e0e0;
-  z-index: 150;
-  height: 56px;
-  min-height: 56px;
-}
-.top-nav-link {
-  color: #111;
-  font-weight: 700;
-  font-size: 18px;
-  padding: 12px 18px;
-  min-width: 44px;
-  min-height: 44px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  transition: background 0.15s;
-}
-.top-nav-link.router-link-exact-active {
-  text-decoration: underline;
-  color: #1877f2;
-}
-.top-nav-link:active {
-  background: #f0f2f5;
-}
-.top-nav-divider {
-  color: #222;
-  font-size: 20px;
-  padding: 0 8px;
-  min-width: 24px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-}
-.hr {
-  border-bottom: 1px solid var(--gray-400);
-  margin-bottom: 0;
-}
-.main-content {
-  position: relative;
-  min-height: 400px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 128px 0 0 0; /* 56px header + 56px nav + 16px gap */
-  width: 100vw;
-  box-sizing: border-box;
-}
-.online-now {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
-  margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-xs);
-  align-self: flex-start;
-  margin-left: var(--spacing-sm);
-}
-.users-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: var(--spacing-xs);
-  width: 100%;
-  padding-left: var(--spacing-sm);
-}
-.user-bubble {
-  align-items: center;
-  margin-right: var(--spacing-sm);
-  margin-bottom: var(--spacing-xs);
-  display: flex;
-  flex-direction: column;
-}
-.user-img {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--gray-400);
-  background: var(--gray-100);
-}
-.user-img-placeholder {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--gray-400);
-  background: var(--gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-2xl);
-  color: var(--text-tertiary);
-}
-.user-name {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  margin-top: var(--spacing-xs);
-}
-.members-online {
-  font-size: var(--font-size-base);
-  color: var(--text-tertiary);
-  margin-bottom: var(--spacing-sm);
-  align-self: flex-start;
-  margin-left: var(--spacing-sm);
-}
-.quote-box {
-  background: var(--bg-secondary);
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-lg);
-  width: 96%;
-  align-self: center;
-  font-size: var(--font-size-base);
-  color: var(--text-primary);
-  text-align: justify;
-  box-shadow: var(--shadow-sm);
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: var(--z-modal-backdrop);
-}
-.modal-content {
-  background-color: var(--bg-primary);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-  width: 80%;
-  max-width: 400px;
-  box-shadow: var(--shadow-xl);
-}
-.modal-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--spacing-sm);
-}
-.modal-icon {
-  font-size: var(--font-size-2xl);
-  margin-right: var(--spacing-sm);
-  color: var(--primary-color);
-}
-.modal-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
-}
-.modal-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: var(--spacing-sm);
-  gap: var(--spacing-sm);
-}
-.download-app-row {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--spacing-sm);
-}
-.download-app-btn {
-  background: #43a047;
-  color: #fff;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 10px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(67,160,71,0.12);
-  transition: background 0.15s;
-}
-.download-app-btn:hover {
-  background: #388e3c;
-}
-.maintenance-modal-overlay {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.25);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.maintenance-modal-content {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(33,150,243,0.18), 0 2px 8px rgba(0,0,0,0.08);
-  padding: 36px 32px 28px 32px;
-  min-width: 320px;
-  max-width: 95vw;
-  width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  max-height: 90vh;
-  overflow-y: auto;
-  border: 2px solid #e3f0ff;
-  animation: modalPopIn 0.3s;
-}
-@keyframes modalPopIn {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-.maintenance-modal-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.maintenance-icon {
-  color: #b71c1c;
-  font-size: 2.2em;
-}
-.maintenance-title {
-  font-size: 1.35em;
-  font-weight: 800;
-  color: #b71c1c;
-  letter-spacing: 0.5px;
-}
-.maintenance-main-message {
-  font-size: 1.15em;
-  font-weight: 600;
-  color: #b71c1c;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.maintenance-highlight {
-  color: #d32f2f;
-  font-weight: 700;
-}
-.maintenance-timer-label {
-  font-size: 1.05em;
-  color: #444;
-  margin-bottom: 2px;
-  margin-top: 8px;
-}
-.maintenance-timer {
-  font-size: 1.5em;
-  font-weight: 800;
-  color: #1976d2;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-.maintenance-desc {
-  font-size: 0.98em;
-  color: #888;
-  margin-top: 8px;
-  text-align: center;
-}
-.maintenance-modal-overlay-inside {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.18);
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-}
-.maintenance-blur > *:not(.maintenance-modal-overlay-inside) {
-  pointer-events: none;
-  user-select: none;
-  /* Optionally add a blur effect: filter: blur(2px); */
-}
+
+   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                    0.02s
+   FAIL  Tests\Feature\Auth\AuthenticationTest
+  ✓ login screen can be rendered                                         0.65s
+  ⨯ users can authenticate using the login screen                        0.13s
+  ⨯ users can authenticate using username                                0.07s
+  ⨯ users can not authenticate with invalid password                     0.07s
+  ⨯ users can logout                                                     0.07s
+   FAIL  Tests\Feature\Auth\EmailVerificationTest
+  ⨯ email verification screen can be rendered                            0.08s
+  ⨯ email can be verified                                                0.07s
+  ⨯ email is not verified with invalid hash                              0.07s
+   FAIL  Tests\Feature\Auth\PasswordConfirmationTest
+  ⨯ confirm password screen can be rendered                              0.07s
+  ⨯ password can be confirmed                                            0.07s
+  ⨯ password is not confirmed with invalid password                      0.07s
+   FAIL  Tests\Feature\Auth\PasswordResetTest
+  ✓ reset password link screen can be rendered                           0.08s
+  ⨯ reset password link can be requested                                 0.16s
+  ⨯ reset password screen can be rendered                                0.07s
+  ⨯ password can be reset with valid token                               0.07s
+   FAIL  Tests\Feature\Auth\PasswordUpdateTest
+  ⨯ password can be updated                                              0.08s
+  ⨯ correct password must be provided to update password                 0.07s
+   PASS  Tests\Feature\Auth\RegistrationTest
+  ✓ registration screen can be rendered                                  0.07s
+  ✓ new users can register                                               0.11s
+   PASS  Tests\Feature\ExampleTest
+  ✓ it returns a successful response                                     0.07s
+   FAIL  Tests\Feature\ProfileTest
+  ⨯ profile page is displayed                                            0.07s
+  ⨯ profile information can be updated                                   0.07s
+  ⨯ email verification status is unchanged when the email address is un… 0.07s
+  ⨯ user can delete their account                                        0.08s
+  ⨯ correct password must be provided to delete account                  0.08s
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\AuthenticationTest > users can…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (testuser69, Kimberly, Hettinger, ?, 2401 Aidan Union Apt. 369
+Emmanuelhaven, IN 13041-4432, +1-484-364-4458, cooper.huels@example.net, 2026-02-13 11:31:29, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, apcB8MIky4, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\AuthenticationTest > users can…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (testuser69, Dortha, Toy, ?, 93641 Lakin Passage Apt. 858
+Hauckport, ME 66454, (754) 318-0382, immanuel63@example.com, 2026-02-13 11:31:29, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, eL5MGe2XQ7, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\AuthenticationTest > users can…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (testuser69, Bernice, Kozey, Pamela, 8228 Vandervort Prairie
+North Kathleenborough, OR 48001-2369, +15673487952, lourdes86@example.net, 2026-02-13 11:31:29, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, 5xykaW6DPc, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\AuthenticationTest > users can…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (bashirian.reginald, Teresa, Bogan, ?, 147 Esteban Views
+West Naomie, MN 86770-4842, 1-951-723-1864, danyka67@example.net, 2026-02-13 11:31:29, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, I00jXKW5rL, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\EmailVerificationTest > email…   QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (mortimer11, Vita, Breitenberg, Javonte, 90180 Walsh Port
+Auerchester, WY 62156, +1 (254) 271-2221, june.torp@example.com, ?, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, oCEQf4Y4Ye, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\EmailVerificationTest > email…   QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (emiliano43, Magdalen, Weber, ?, 615 Stracke Plains Apt. 315
+Victorfort, IL 58900, +1-512-346-7166, cartwright.aiyana@example.com, ?, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, Pn7FxUMlrw, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\EmailVerificationTest > email…   QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (brigitte39, Kailyn, Heathcote, ?, 32129 Everardo Skyway Suite 012
+West Leannaport, CA 87922, 270.945.5551, llakin@example.com, ?, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, N1NVKdxRn8, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordConfirmationTest > con…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (ward.luther, Sabryna, Mohr, Edwina, 98184 Marvin Coves
+Nakiastad, WA 89026-6416, +1.385.425.9871, grant.brant@example.com, 2026-02-13 11:31:29, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, utdoAkqAN4, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordConfirmationTest > pas…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (jaron83, Antone, Lakin, Adolfo, 45944 Karolann Fall
+Littleport, WA 95621, 445-453-8121, freda.connelly@example.org, 2026-02-13 11:31:29, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, C8YK4elE7s, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordConfirmationTest > pas…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (leila58, Jose, Sauer, Tristian, 1553 Kirlin Stravenue Suite 267
+New Mathias, TX 73141-9703, 272-415-4438, ressie.kshlerin@example.com, 2026-02-13 11:31:29, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, kVTRiB2JYW, 0, 2026-02-13 11:31:29, 2026-02-13 11:31:29))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordResetTest > reset pass…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (dubuque.kenyatta, Roel, Collier, ?, 64625 Conroy Well
+Addieland, CO 99815, (720) 598-6759, treutel.meta@example.org, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, DyAuDl0WI3, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordResetTest > reset pass…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (mayer.lulu, Gustave, Kozey, ?, 77588 Hackett Alley
+West Adaton, MT 58152, 847-207-5911, rconn@example.org, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, iKMfr8DSqj, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordResetTest > password c…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (ike.wehner, Morton, Harber, ?, 9148 Solon Ramp Suite 104
+North Roslynside, NM 61827, 1-667-902-4641, langworth.shayne@example.org, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, ZlIm47EOxr, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordUpdateTest > password…   QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (tavares38, Hilda, Wiza, ?, 8512 Klocko Route
+Aaronfurt, IA 26378, 972.498.2719, tina.zboncak@example.org, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, C4AM329OdK, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\Auth\PasswordUpdateTest > correct p…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (stamm.olin, Lizeth, Farrell, ?, 98990 Lebsack Inlet
+Weberhaven, ND 80700-3601, 469.894.9196, mohammed.adams@example.com, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, k2fMUYhZcx, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ProfileTest > profile page is displ…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (fred65, Maynard, Spencer, Lexus, 83775 O'Conner Islands Suite 615
+New Hiram, WV 97487, 239-366-3248, neil71@example.net, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, knwG0KROzQ, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ProfileTest > profile information c…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (testuser, Thalia, Jakubowski, Eden, 61615 Kunze Dale Suite 044
+North Elmore, MI 75722, +1 (707) 452-3338, wschneider@example.net, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, G1UvvIXx8d, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ProfileTest > email verification st…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (testuser, Celia, Blick, ?, 5330 Corkery Branch
+North Lolitaville, IL 16377, 412.584.2855, garry.leannon@example.net, 2026-02-13 11:31:30, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, h8PgeKihCz, 0, 2026-02-13 11:31:30, 2026-02-13 11:31:30))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ProfileTest > user can delete their…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (raufderhar, Dayana, Bruen, ?, 4201 Tiara Causeway
+Port Marlee, DE 68737, +1.920.274.4734, purdy.lexi@example.com, 2026-02-13 11:31:31, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, q18jcEFIiv, 0, 2026-02-13 11:31:31, 2026-02-13 11:31:31))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  ────────────────────────────────────────────────────────────────────────────
+   FAILED  Tests\Feature\ProfileTest > correct password must…  QueryException
+  SQLSTATE[HY000]: General error: 1 table users has no column named firstname (Connection: sqlite, Database: :memory:, SQL: insert into "users" ("username", "firstname", "lastname", "middlename", "address", "contact_number", "email", "email_verified_at", "password", "remember_token", "credits", "updated_at", "created_at") values (fblick, Makayla, Rice, Americo, 30298 Noel Cliffs Apt. 115
+Nitzschechester, DE 07811, +1.307.265.2151, durgan.garret@example.org, 2026-02-13 11:31:31, $2y$04$/CcvJAP4z9thPpUVFd5OLO/eNGCBn341pyknB4xtt6C35uwK3ZG6y, 125jezRKRk, 0, 2026-02-13 11:31:31, 2026-02-13 11:31:31))
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+    574▕             if ($this->pretending()) {
+    575▕                 return true;
+    576▕             }
+    577▕
+  ➜ 578▕             $statement = $this->getPdo()->prepare($query);
+    579▕
+    580▕             $this->bindValues($statement, $this->prepareBindings($bindings));
+    581▕
+    582▕             $this->recordsHaveBeenModified();
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+  Tests:    20 failed, 6 passed (9 assertions)
+  Duration: 2.95s

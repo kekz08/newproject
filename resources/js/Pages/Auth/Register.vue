@@ -6,12 +6,8 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
     username: '',
-    firstname: '',
-    middlename: '',
-    lastname: '',
-    address: '',
-    contact_number: '',
     email: '',
+    gender: '',
     password: '',
     password_confirmation: '',
 });
@@ -37,6 +33,12 @@ const goLogin = () => {
 };
 
 const handleRegister = () => {
+    // Client-side alphanumeric check for username
+    const alphanumericRegex = /^[a-zA-Z0-9]+$/;
+    if (!alphanumericRegex.test(form.username)) {
+        form.errors.username = 'The username may only contain letters and numbers.';
+        return;
+    }
     submit();
 };
 </script>
@@ -49,13 +51,13 @@ const handleRegister = () => {
 
     <HeaderBar />
 
-    <div class="fixed top-[56px] left-0 w-full flex justify-center items-center bg-[#FFA000] border-b border-[#e0e0e0] z-[150] h-[56px] min-h-[56px]">
+    <div class="fixed top-[56px] left-1/2 -translate-x-1/2 w-full max-w-[600px] flex justify-center items-center bg-[#FFA000] border-b border-[#e0e0e0] z-[150] h-[56px] min-h-[56px]">
       <Link :href="route('login')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('login') }">Login</Link>
       <span class="text-[#222] text-[20px] px-2 min-w-[24px] min-h-[44px] inline-flex items-center justify-center select-none">|</span>
       <Link :href="route('register')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('register') }">Register</Link>
     </div>
 
-    <div class="main-content flex flex-col items-center justify-center min-h-screen pt-28 pb-14">
+    <div class="main-content flex flex-col items-center justify-center min-h-screen pt-14 pb-14">
       <h2 class="title text-3xl font-bold text-gray-800 mb-6">Create an Account</h2>
 
       <div v-if="loading && !error" class="register-loading-spinner mb-4 text-indigo-600">
@@ -79,47 +81,7 @@ const handleRegister = () => {
             :disabled="loading"
             required
             autofocus
-          />
-        </div>
-
-        <!-- Full Name Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="input-group relative">
-            <i class="fas fa-user input-icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-            <input
-              v-model="form.firstname"
-              class="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
-              type="text"
-              placeholder="First Name"
-              autocomplete="given-name"
-              :disabled="loading"
-              required
-            />
-          </div>
-          <div class="input-group relative">
-            <i class="fas fa-user input-icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-            <input
-              v-model="form.lastname"
-              class="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
-              type="text"
-              placeholder="Last Name"
-              autocomplete="family-name"
-              :disabled="loading"
-              required
-            />
-          </div>
-        </div>
-
-        <!-- Middle Name -->
-        <div class="input-group relative">
-          <i class="fas fa-user input-icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-          <input
-            v-model="form.middlename"
-            class="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
-            type="text"
-            placeholder="Middle Name (Optional)"
-            autocomplete="additional-name"
-            :disabled="loading"
+            @input="form.username = form.username.replace(/[^a-zA-Z0-9]/g, '')"
           />
         </div>
 
@@ -135,6 +97,22 @@ const handleRegister = () => {
             :disabled="loading"
             required
           />
+        </div>
+
+        <!-- Gender -->
+        <div class="input-group relative">
+          <i class="fas fa-venus-mars input-icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <select
+            v-model="form.gender"
+            class="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition appearance-none bg-white"
+            :disabled="loading"
+            required
+          >
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
         </div>
 
         <!-- Password -->
@@ -173,32 +151,6 @@ const handleRegister = () => {
             class="password-toggle-icon absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer hover:text-gray-600 transition"
             @click="showConfirmPassword = !showConfirmPassword"
           ></i>
-        </div>
-
-        <!-- Address -->
-        <div class="input-group relative">
-          <i class="fas fa-map-marker-alt input-icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-          <input
-            v-model="form.address"
-            class="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
-            type="text"
-            placeholder="Address (Optional)"
-            autocomplete="street-address"
-            :disabled="loading"
-          />
-        </div>
-
-        <!-- Contact Number -->
-        <div class="input-group relative">
-          <i class="fas fa-phone input-icon absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-          <input
-            v-model="form.contact_number"
-            class="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
-            type="text"
-            placeholder="Contact Number (Optional)"
-            autocomplete="tel"
-            :disabled="loading"
-          />
         </div>
 
         <!-- reCAPTCHA widget placeholder -->

@@ -47,7 +47,7 @@ const goRegister = () => {
 
     <HeaderBar />
 
-    <div class="fixed top-[56px] left-0 w-full flex justify-center items-center bg-[#FFA000] border-b border-[#e0e0e0] z-[150] h-[56px] min-h-[56px]">
+    <div class="fixed top-[56px] left-1/2 -translate-x-1/2 w-full max-w-[600px] flex justify-center items-center bg-[#FFA000] border-b border-[#e0e0e0] z-[150] h-[56px] min-h-[56px]">
       <Link :href="route('login')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('login') }">Login</Link>
       <span class="text-[#222] text-[20px] px-2 min-w-[24px] min-h-[44px] inline-flex items-center justify-center select-none">|</span>
       <Link :href="route('register')" class="text-[#111] font-bold text-[18px] px-[18px] py-[12px] min-w-[44px] min-h-[44px] no-underline inline-flex items-center justify-center rounded-lg transition-colors duration-150 active:bg-[#f0f2f5]" :class="{ 'underline text-[#1877f2]': route().current('register') }">Register</Link>
@@ -55,7 +55,7 @@ const goRegister = () => {
 
     <div class="border-b border-gray-400 mb-0"></div>
 
-    <div class="main-content flex flex-col items-center justify-center min-h-screen pt-28 pb-14">
+    <div class="main-content flex flex-col items-center justify-center min-h-screen pt-14 pb-14">
       <h2 class="welcome-title text-3xl font-bold text-gray-800 mb-2">Welcome Back!</h2>
 
       <div v-if="status" class="mb-4 text-sm font-medium text-green-600">

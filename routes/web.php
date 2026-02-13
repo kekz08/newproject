@@ -37,6 +37,18 @@ Route::get('/cookies', function () {
 
 Route::get('/online-users', [OnlineUserController::class, 'index'])->name('online.users');
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/shop', function () { return Inertia::render('Shop/Index'); })->name('shop');
+    Route::get('/chatrooms', function () { return Inertia::render('Chatrooms/Index'); })->name('chatrooms');
+    Route::get('/forum', function () { return Inertia::render('Forum/Index'); })->name('forum');
+    Route::get('/friends', function () { return Inertia::render('Friends/Index'); })->name('friends');
+    Route::get('/statistics', function () { return Inertia::render('Statistics/Index'); })->name('statistics');
+    Route::get('/pet-wars', function () { return Inertia::render('PetWars/Index'); })->name('petwars');
+    Route::get('/settings', function () { return Inertia::render('Settings/Index'); })->name('settings');
+    Route::get('/staff-panel', function () { return Inertia::render('StaffPanel/Index'); })->name('staff.panel');
+    Route::get('/vip-panel', function () { return Inertia::render('VipPanel/Index'); })->name('vip.panel');
+});
+
 require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {

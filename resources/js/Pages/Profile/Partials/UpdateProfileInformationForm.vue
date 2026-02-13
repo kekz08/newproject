@@ -18,11 +18,12 @@ const user = usePage().props.auth.user;
 
 const form = useForm({
     username: user.username,
-    firstname: user.firstname,
-    middlename: user.middlename,
-    lastname: user.lastname,
-    address: user.address,
-    contact_number: user.contact_number,
+    gender: user.gender,
+    firstname: user.firstname ?? '',
+    middlename: user.middlename ?? '',
+    lastname: user.lastname ?? '',
+    address: user.address ?? '',
+    contact_number: user.contact_number ?? '',
     email: user.email,
 });
 </script>
@@ -59,35 +60,40 @@ const form = useForm({
                 <InputError class="mt-2" :message="form.errors.username" />
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <InputLabel for="firstname" value="First Name" />
-                    <TextInput
-                        id="firstname"
-                        type="text"
-                        class="mt-1 block w-full"
-                        v-model="form.firstname"
-                        required
-                        autocomplete="given-name"
-                    />
-                    <InputError class="mt-2" :message="form.errors.firstname" />
-                </div>
-                <div>
-                    <InputLabel for="lastname" value="Last Name" />
-                    <TextInput
-                        id="lastname"
-                        type="text"
-                        class="mt-1 block w-full"
-                        v-model="form.lastname"
-                        required
-                        autocomplete="family-name"
-                    />
-                    <InputError class="mt-2" :message="form.errors.lastname" />
-                </div>
+            <div>
+                <InputLabel for="gender" value="Gender" />
+
+                <select
+                    id="gender"
+                    class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                    v-model="form.gender"
+                    required
+                >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <InputError class="mt-2" :message="form.errors.gender" />
             </div>
 
             <div>
-                <InputLabel for="middlename" value="Middle Name (Optional)" />
+                <InputLabel for="firstname" value="First Name" />
+
+                <TextInput
+                    id="firstname"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.firstname"
+                    autocomplete="given-name"
+                />
+
+                <InputError class="mt-2" :message="form.errors.firstname" />
+            </div>
+
+            <div>
+                <InputLabel for="middlename" value="Middle Name" />
+
                 <TextInput
                     id="middlename"
                     type="text"
@@ -95,11 +101,27 @@ const form = useForm({
                     v-model="form.middlename"
                     autocomplete="additional-name"
                 />
+
                 <InputError class="mt-2" :message="form.errors.middlename" />
             </div>
 
             <div>
-                <InputLabel for="address" value="Address (Optional)" />
+                <InputLabel for="lastname" value="Last Name" />
+
+                <TextInput
+                    id="lastname"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.lastname"
+                    autocomplete="family-name"
+                />
+
+                <InputError class="mt-2" :message="form.errors.lastname" />
+            </div>
+
+            <div>
+                <InputLabel for="address" value="Address" />
+
                 <TextInput
                     id="address"
                     type="text"
@@ -107,11 +129,13 @@ const form = useForm({
                     v-model="form.address"
                     autocomplete="street-address"
                 />
+
                 <InputError class="mt-2" :message="form.errors.address" />
             </div>
 
             <div>
-                <InputLabel for="contact_number" value="Contact Number (Optional)" />
+                <InputLabel for="contact_number" value="Contact Number" />
+
                 <TextInput
                     id="contact_number"
                     type="text"
@@ -119,6 +143,7 @@ const form = useForm({
                     v-model="form.contact_number"
                     autocomplete="tel"
                 />
+
                 <InputError class="mt-2" :message="form.errors.contact_number" />
             </div>
 

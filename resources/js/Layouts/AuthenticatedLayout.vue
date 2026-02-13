@@ -1,21 +1,40 @@
 <script setup>
 import FooterNav from '@/Components/FooterNav.vue';
 import HeaderBar from '@/Components/HeaderBar.vue';
+import NavBar from '@/Components/NavBar.vue';
+import DrawerMenu from '@/Components/DrawerMenu.vue';
 import { ref } from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 
 const showingNavigationDropdown = ref(false);
+const isDrawerOpen = ref(false);
+const logoutForm = useForm({});
+
+const handleMenuSelect = (item) => {
+    if (item === 'Logout') {
+        logoutForm.post(route('logout'));
+    } else {
+        alert(`Navigating to ${item} (Temporary Content)`);
+    }
+    isDrawerOpen.value = false;
+};
 </script>
 
 <template>
     <div>
         <HeaderBar />
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <NavBar @menu-press="isDrawerOpen = true" />
+        <DrawerMenu
+            :visible="isDrawerOpen"
+            @close="isDrawerOpen = false"
+            @menu-select="handleMenuSelect"
+        />
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900 pt-[112px]">
             <nav
                 class="border-b border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800"
             >

@@ -24,10 +24,11 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => fake()->unique()->userName(),
+            'username' => str_replace(['.', '_'], '', fake()->unique()->userName()),
+            'gender' => fake()->randomElement(['male', 'female', 'other']),
             'firstname' => fake()->firstName(),
+            'middlename' => fake()->lastName(), // Using lastName as a filler for middle name
             'lastname' => fake()->lastName(),
-            'middlename' => fake()->optional()->firstName(),
             'address' => fake()->address(),
             'contact_number' => fake()->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),

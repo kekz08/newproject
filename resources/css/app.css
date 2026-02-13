@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        margin: 0 auto;
+        max-width: 600px;
+        font-weight: normal;
+        font-size: 16px; /* medium equivalent */
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        min-height: 100vh;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* To make the area outside 600px look better on PC */
+    html {
+        background-color: #f3f4f6; /* Gray-100 */
+    }
+}
