@@ -32,7 +32,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'username' => 'required|string|max:255|unique:'.User::class,
+            'username' => 'required|string|min:6|max:15|unique:'.User::class,
             'firstname' => 'required|string|max:255',
             'middlename' => 'nullable|string|max:255',
             'lastname' => 'required|string|max:255',
@@ -42,7 +42,23 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $this->authService->register($data, $request->ip(), $request->userAgent());
+        $user = User::create([
+            'username' => $data['username'],
+            'firstname' => $data['firstname'],
+            'middlename' => $data['middlename'] ?? null,
+            'lastname' => $data['lastname'],
+            'address' => $data['address'] ?? null,
+            'contact_number' => $data['contact_number'] ?? null,
+            'email' => $data['email'],
+            'password' => \Illuminate\Support\Facades\Hash::make($data['password']),
+            'ip' => $request->ip(),
+            'browser' => $request->userAgent(),
+            'credits' => 0,
+        ]);
+
+        event(new \Illuminate\Auth\Events\Registered($user));
+
+        \Illuminate\Support\Facades\Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
     }

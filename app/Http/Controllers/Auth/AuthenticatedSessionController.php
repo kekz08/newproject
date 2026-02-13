@@ -33,12 +33,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $this->authService->login(
-            $request->only('email', 'password'),
-            $request->boolean('remember'),
-            $request->ip(),
-            $request->userAgent()
-        );
+        $request->authenticate();
+
+        // Update IP and browser on successful login
+        $user = Auth::user();
+        $user->update([
+            'ip' => $request->ip(),
+            'browser' => $request->userAgent(),
+        ]);
 
         $request->session()->regenerate();
 

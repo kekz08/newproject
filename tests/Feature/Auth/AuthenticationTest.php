@@ -9,10 +9,26 @@ test('login screen can be rendered', function () {
 });
 
 test('users can authenticate using the login screen', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->create([
+        'username' => 'testuser69'
+    ]);
 
     $response = $this->post('/login', [
-        'email' => $user->email,
+        'login' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $this->assertAuthenticated();
+    $response->assertRedirect(route('dashboard', absolute: false));
+});
+
+test('users can authenticate using username', function () {
+    $user = User::factory()->create([
+        'username' => 'testuser69'
+    ]);
+
+    $response = $this->post('/login', [
+        'login' => 'testuser69',
         'password' => 'password',
     ]);
 
@@ -21,10 +37,12 @@ test('users can authenticate using the login screen', function () {
 });
 
 test('users can not authenticate with invalid password', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->create([
+        'username' => 'testuser69'
+    ]);
 
     $this->post('/login', [
-        'email' => $user->email,
+        'login' => $user->email,
         'password' => 'wrong-password',
     ]);
 

@@ -43,15 +43,17 @@ class AuthService
      */
     public function login(array $credentials, bool $remember = false, string $ip = '', string $browser = ''): void
     {
-        if ($this->tooManyAttempts($credentials['email'], $ip)) {
-            $this->throwLockoutException($credentials['email'], $ip);
+        $loginValue = $credentials['login'] ?? ($credentials['email'] ?? '');
+
+        if ($this->tooManyAttempts($loginValue, $ip)) {
+            $this->throwLockoutException($loginValue, $ip);
         }
 
         if (!Auth::attempt($credentials, $remember)) {
-            RateLimiter::hit($this->throttleKey($credentials['email'], $ip));
+            RateLimiter::hit($this->throttleKey($loginValue, $ip));
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'login' => trans('auth.failed'),
             ]);
         }
 
@@ -62,26 +64,26 @@ class AuthService
             'browser' => $browser,
         ]);
 
-        RateLimiter::clear($this->throttleKey($credentials['email'], $ip));
+        RateLimiter::clear($this->throttleKey($loginValue, $ip));
     }
 
     /**
      * Determine if there are too many failed login attempts.
      */
-    protected function tooManyAttempts(string $email, string $ip): bool
+    protected function tooManyAttempts(string $login, string $ip): bool
     {
-        return RateLimiter::tooManyAttempts($this->throttleKey($email, $ip), 5);
+        return RateLimiter::tooManyAttempts($this->throttleKey($login, $ip), 5);
     }
 
     /**
      * Throw a validation exception for too many login attempts.
      */
-    protected function throwLockoutException(string $email, string $ip): void
+    protected function throwLockoutException(string $login, string $ip): void
     {
-        $seconds = RateLimiter::availableIn($this->throttleKey($email, $ip));
+        $seconds = RateLimiter::availableIn($this->throttleKey($login, $ip));
 
         throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
+            'login' => trans('auth.throttle', [
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
@@ -91,8 +93,8 @@ class AuthService
     /**
      * Get the rate limiting throttle key for the request.
      */
-    protected function throttleKey(string $email, string $ip): string
+    protected function throttleKey(string $login, string $ip): string
     {
-        return Str::transliterate(Str::lower($email).'|'.$ip);
+        return Str::transliterate(Str::lower($login).'|'.$ip);
     }
 }
