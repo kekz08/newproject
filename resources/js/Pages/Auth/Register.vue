@@ -2,6 +2,8 @@
 import { ref, computed } from 'vue';
 import HeaderBar from '@/Components/HeaderBar.vue';
 import FooterNav from '@/Components/FooterNav.vue';
+import Toast from '@/Components/Toast.vue';
+import { toast } from '@/Stores/toast';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
@@ -10,6 +12,7 @@ const form = useForm({
     gender: '',
     password: '',
     password_confirmation: '',
+    terms: false,
 });
 
 const showPassword = ref(false);
@@ -25,7 +28,7 @@ const submit = () => {
 };
 
 const handleGoogleLogin = () => {
-    alert('Google Sign-up is currently disabled.');
+    toast.show('Google Sign-up is currently disabled.', 'warning');
 };
 
 const goLogin = () => {
@@ -39,6 +42,12 @@ const handleRegister = () => {
         form.errors.username = 'The username may only contain letters and numbers.';
         return;
     }
+
+    if (!form.terms) {
+        toast.show('You must agree to the Terms and Conditions.', 'error');
+        return;
+    }
+
     submit();
 };
 </script>
@@ -160,6 +169,23 @@ const handleRegister = () => {
           </div>
         </div>
 
+        <!-- Terms and Conditions -->
+        <div class="flex items-center space-x-2 py-2">
+          <input
+            id="terms"
+            v-model="form.terms"
+            type="checkbox"
+            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 h-5 w-5"
+            required
+          />
+          <label for="terms" class="text-sm text-gray-600">
+            I agree to the
+            <Link :href="route('terms')" class="text-indigo-600 hover:text-indigo-800 font-bold underline">Terms of Service</Link>
+            and
+            <Link :href="route('privacy')" class="text-indigo-600 hover:text-indigo-800 font-bold underline">Privacy Policy</Link>.
+          </label>
+        </div>
+
         <button
           class="btn btn-primary btn-lg register-btn w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
           :disabled="loading || !recaptchaToken"
@@ -185,5 +211,6 @@ const handleRegister = () => {
       </div>
     </div>
     <FooterNav />
+    <Toast />
   </div>
 </template>

@@ -4,6 +4,9 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+import { ref } from 'vue';
+import { toast } from '@/Stores/toast';
+import axios from 'axios';
 
 defineProps({
     mustVerifyEmail: {
@@ -26,6 +29,48 @@ const form = useForm({
     contact_number: user.contact_number ?? '',
     email: user.email,
 });
+
+const photoInput = ref(null);
+const photoPreview = ref(null);
+
+const updatePhotoPreview = () => {
+    const photo = photoInput.value.files[0];
+
+    if (!photo) return;
+
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+        photoPreview.value = e.target.result;
+        // Upload immediately or wait for form submit?
+        // Let's do it on form submit or add a separate button.
+        // The user asked for Base64 approach.
+    };
+
+    reader.readAsDataURL(photo);
+};
+
+const uploadPhoto = () => {
+    if (!photoPreview.value) return;
+
+    axios.post(route('profile.image.store', { type: 'avatar' }), {
+        image: photoPreview.value
+    }).then(response => {
+        // Update user avatar in UI if needed
+        // Since we serve it via a route, we might just need to refresh the src
+        toast.show('Photo uploaded successfully');
+        photoPreview.value = null;
+
+        // Refresh the page or update the user object to trigger re-render of images
+        // For simplicity, let's just use window.location.reload() or Inertia.reload()
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+    }).catch(error => {
+        console.error(error);
+        toast.show('Failed to upload photo', 'error');
+    });
+};
 </script>
 
 <template>
@@ -39,6 +84,53 @@ const form = useForm({
                 Update your account's profile information and email address.
             </p>
         </header>
+
+        <div class="mt-6 space-y-6">
+            <div>
+                <InputLabel for="photo" value="Photo" />
+                <input
+                    type="file"
+                    id="photo"
+                    class="hidden"
+                    ref="photoInput"
+                    @change="updatePhotoPreview"
+                />
+
+                <div class="mt-2" v-show="!photoPreview">
+                    <img
+                        :src="route('profile.image.show', { type: 'avatar', userId: user.id }) + '?t=' + Date.now()"
+                        class="h-20 w-20 rounded-full object-cover"
+                    />
+                </div>
+
+                <div class="mt-2" v-show="photoPreview">
+                    <span
+                        class="block h-20 w-20 rounded-full bg-cover bg-no-repeat bg-center"
+                        :style="'background-image: url(\'' + photoPreview + '\');'"
+                    >
+                    </span>
+                </div>
+
+                <PrimaryButton
+                    class="mt-2 me-2"
+                    type="button"
+                    @click.prevent="photoInput.click()"
+                >
+                    Select A New Photo
+                </PrimaryButton>
+
+                <PrimaryButton
+                    v-if="photoPreview"
+                    class="mt-2"
+                    type="button"
+                    @click.prevent="uploadPhoto"
+                >
+                    Upload Photo
+                </PrimaryButton>
+
+                <InputError :message="form.errors.photo" class="mt-2" />
+            </div>
+        </div>
 
         <form
             @submit.prevent="form.patch(route('profile.update'))"

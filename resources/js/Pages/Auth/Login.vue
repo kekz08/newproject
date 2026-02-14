@@ -2,6 +2,8 @@
 import { ref, computed } from 'vue';
 import HeaderBar from '@/Components/HeaderBar.vue';
 import FooterNav from '@/Components/FooterNav.vue';
+import Toast from '@/Components/Toast.vue';
+import { toast } from '@/Stores/toast';
 import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
 
 defineProps({
@@ -31,7 +33,7 @@ const handleLogin = () => {
 };
 
 const handleGoogleLogin = () => {
-    alert('Google Login is currently disabled.');
+    toast.show('Google Login is currently disabled.', 'warning');
 };
 
 const goRegister = () => {
@@ -136,5 +138,6 @@ const goRegister = () => {
     </div>
 
     <FooterNav />
+    <Toast />
   </div>
 </template>

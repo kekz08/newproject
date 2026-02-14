@@ -13,6 +13,7 @@ test('new users can register', function () {
         'gender' => 'male',
         'password' => 'Password123!',
         'password_confirmation' => 'Password123!',
+        'terms' => true,
     ]);
 
     $response->assertSessionHasNoErrors();

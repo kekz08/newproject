@@ -1,7 +1,7 @@
 <script setup>
 import FooterNav from '@/Components/FooterNav.vue';
 import HeaderBar from '@/Components/HeaderBar.vue';
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link, usePage, useRemember } from '@inertiajs/vue3';
 import { computed, ref, onMounted } from 'vue';
 import { quotes } from '@/quotes';
 
@@ -14,11 +14,18 @@ const page = usePage();
 const appName = computed(() => page.props.appName || 'Pinoypark');
 const currentYear = new Date().getFullYear();
 
-const randomOnlineUsers = ref([]);
-const allOnlineUsers = ref([]);
+const randomOnlineUsers = useRemember(ref([]), 'randomOnlineUsers');
+const allOnlineUsers = useRemember(ref([]), 'allOnlineUsers');
+const lastFetchTime = useRemember(ref(0), 'lastFetchTime');
 const currentQuote = ref(quotes[Math.floor(Math.random() * quotes.length)]);
 
 const fetchOnlineUsers = async () => {
+    // Basic client-side cache: if we have data and it's less than 30 seconds old, don't fetch
+    const now = Date.now();
+    if (allOnlineUsers.value.length > 0 && (now - lastFetchTime.value) < 30000) {
+        return;
+    }
+
     try {
         const response = await fetch(route('online.users'), {
             headers: {
@@ -29,6 +36,7 @@ const fetchOnlineUsers = async () => {
         if (response.ok) {
             const data = await response.json();
             allOnlineUsers.value = data.online_users;
+            lastFetchTime.value = Date.now();
             // Shuffling or limiting for the "bubble" display
             randomOnlineUsers.value = [...data.online_users].sort(() => 0.5 - Math.random()).slice(0, 10);
         }
@@ -69,7 +77,7 @@ onMounted(() => {
             <div class="flex flex-row items-center mb-1 w-full pl-2 overflow-x-auto">
                 <div v-for="user in randomOnlineUsers" :key="user.id" class="flex flex-col items-center mr-2 mb-1 shrink-0">
                     <img
-                        :src="user.avatar ? (user.avatar.startsWith('http') ? user.avatar : user.avatar) : '/images/default-avatar.png'"
+                        :src="route('profile.image.show', { type: 'avatar', userId: user.id }) + '?t=' + lastFetchTime"
                         class="w-12 h-12 rounded-full border border-gray-400 bg-gray-100 object-cover"
                         alt="User Avatar"
                     />

@@ -30,8 +30,15 @@ class User extends Authenticatable
         'ip',
         'browser',
         'credits',
+        'active_avatar',
+        'active_cover',
         'last_seen_at',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OnlineUserController;
+use App\Http\Controllers\ProfileImageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -52,10 +53,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
 require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
+    Route::get('/all-posts', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+    Route::post('/posts', [\App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
+    Route::post('/posts/{post}/like', [\App\Http\Controllers\PostLikeController::class, 'toggle'])->name('posts.like');
+    Route::get('/posts/{post}/comments', [\App\Http\Controllers\PostCommentController::class, 'index'])->name('comments.index');
+    Route::post('/posts/{post}/comments', [\App\Http\Controllers\PostCommentController::class, 'store'])->name('comments.store');
+
     Route::get('/{user:username}', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/{user:username}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::post('/profile/image/{type}', [ProfileImageController::class, 'store'])->name('profile.image.store');
     // Background Data Endpoints (moved from api.php)
 });
+
+Route::get('/profile/image/{type}/{userId}/{fileName?}', [ProfileImageController::class, 'show'])->name('profile.image.show');
